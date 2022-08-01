@@ -10,6 +10,7 @@ public class MIPS {
     public MIPS(){
         try {
             writer = new BufferedWriter(new FileWriter(file));
+            writer.write("v2.0 raw\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
