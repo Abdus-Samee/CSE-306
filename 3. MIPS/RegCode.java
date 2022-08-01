@@ -1,5 +1,5 @@
 public enum RegCode {
-    $zero("0"),
+    $zero("f"),
     $t0("8"),
     $t1("9"),
     $t2("a"),
