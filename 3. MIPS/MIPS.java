@@ -19,7 +19,7 @@ public class MIPS {
     public void generateMIPS(String code){
         String[] arr = code.split(" ");
 
-        if(arr[0]!="j"&&arr[0]!="beq"&&arr[0]!="bneq") RSIFormat(arr);
+        if(arr.length != 2) RSIFormat(arr);
         else JFormat(arr);
     }
 
@@ -39,28 +39,39 @@ public class MIPS {
             reg1 = RegCode.valueOf(getReg(arr[1])).getCode();
             reg2 = RegCode.valueOf(getReg(arr[2])).getCode();
             fourth = RegCode.valueOf(getReg(arr[3])).getCode();
-        }else if(arr[0].equals("sll")||arr[0].equals("srl")||arr[0].equals("addi")||arr[0].equals("subi")||arr[0].equals("andi")||arr[0].equals("ori")){
+        }else if(arr[0].equals("sll")||arr[0].equals("srl")||arr[0].equals("bneq")||arr[0].equals("beq")||arr[0].equals("addi")||arr[0].equals("subi")||arr[0].equals("andi")||arr[0].equals("ori")){
             opcode = OpCode.valueOf(arr[0]).getCode();
             reg1 = RegCode.valueOf(getReg(arr[1])).getCode();
             reg2 = RegCode.valueOf(getReg(arr[2])).getCode();
-            fourth = intToBinary(arr[3]);
+            fourth = Integer.toHexString(Integer.parseInt(arr[3]));
         }else{
             opcode = OpCode.valueOf(arr[0]).getCode();
             reg1 = RegCode.valueOf(getReg(arr[1])).getCode();
             String[] ar = arr[2].split("\\s*[()]\\s*");
             reg2 = RegCode.valueOf(getReg(ar[1])).getCode();
-            fourth = intToBinary(ar[0]);
+            fourth = Integer.toHexString(Integer.parseInt(ar[0]));
         }
 
         try {
-            writer.write(opcode + " " + reg1 + " " + reg2 + " " + fourth + "\n");
+            writer.write(opcode + reg1 + reg2 + fourth + "\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void JFormat(String[] arr){
+        String opcode = OpCode.valueOf(arr[0]).getCode();
+        String address = "";
+        int n = Integer.parseInt(arr[1]);
+        if(n > 15) address = Integer.toHexString(n);
+        else address = "0" + Integer.toHexString(n);
+        String fourth = Integer.toHexString(0);
 
+        try{
+            writer.write(opcode + address + fourth + "\n");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     public String getReg(String op){
