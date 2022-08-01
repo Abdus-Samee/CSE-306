@@ -1,20 +1,20 @@
 public enum OpCode {
-    or("0000"),
-    add("0001"),
-    sub("0010"),
-    bneq("0011"),
-    beq("0100"),
-    sw("0101"),
-    j("0110"),
-    subi("0111"),
-    lw("1000"),
-    and("1001"),
-    srl("1010"),
-    addi("1011"),
-    ori("1100"),
-    nor("1101"),
-    andi("1110"),
-    sll("1111");
+    or("0"),
+    add("1"),
+    sub("2"),
+    bneq("3"),
+    beq("4"),
+    sw("5"),
+    j("6"),
+    subi("7"),
+    lw("8"),
+    and("9"),
+    srl("a"),
+    addi("b"),
+    ori("c"),
+    nor("d"),
+    andi("e"),
+    sll("f");
 
     private String code;
 
