@@ -36,14 +36,14 @@ public class MIPS {
 
         if(arr[0].equals("add")||arr[0].equals("sub")||arr[0].equals("and")||arr[0].equals("or")||arr[0].equals("nor")){
             opcode = OpCode.valueOf(arr[0]).getCode();
-            reg1 = RegCode.valueOf(getReg(arr[1])).getCode();
-            reg2 = RegCode.valueOf(getReg(arr[2])).getCode();
-            fourth = RegCode.valueOf(getReg(arr[3])).getCode();
+            reg1 = RegCode.valueOf(getReg(arr[2])).getCode();
+            reg2 = RegCode.valueOf(getReg(arr[3])).getCode();
+            fourth = RegCode.valueOf(getReg(arr[1])).getCode();
         }else if(arr[0].equals("sll")||arr[0].equals("srl")||arr[0].equals("bneq")||arr[0].equals("beq")||arr[0].equals("addi")||arr[0].equals("subi")||arr[0].equals("andi")||arr[0].equals("ori")){
             opcode = OpCode.valueOf(arr[0]).getCode();
             reg1 = RegCode.valueOf(getReg(arr[1])).getCode();
-            reg2 = RegCode.valueOf(getReg(arr[2])).getCode();
-            fourth = Integer.toHexString(Integer.parseInt(arr[3]));
+            reg2 = Integer.toHexString(Integer.parseInt(arr[3]));
+            fourth = RegCode.valueOf(getReg(arr[2])).getCode();
         }else{
             opcode = OpCode.valueOf(arr[0]).getCode();
             reg1 = RegCode.valueOf(getReg(arr[1])).getCode();
