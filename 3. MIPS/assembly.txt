@@ -1,6 +1,5 @@
 add $t1, $zero, $zero
 add $t2, $zero, $zero
 addi $t1, $t1, 1
-add $t2, $t2, $t1
-sw $t1, 11($t0)
-sll $t2, $t4, 5
+addi $t2, $t2, 3
+add $t3, $t2, $t1
