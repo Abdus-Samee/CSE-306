@@ -4,7 +4,8 @@ public enum RegCode {
     $t1("9"),
     $t2("a"),
     $t3("b"),
-    $t4("c");
+    $t4("c"),
+    $sp("d");
 
     private String code;
 
