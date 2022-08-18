@@ -45,8 +45,8 @@ public class MIPS {
             fourth = RegCode.valueOf(getReg(arr[idx+1])).getCode();
         }else if(arr[idx].equals("bneq")||arr[idx].equals("beq")){
             opcode = OpCode.valueOf(arr[idx]).getCode();
-            reg1 = RegCode.valueOf(getReg(arr[idx+2])).getCode();
-            reg2 = RegCode.valueOf(getReg(arr[idx+1])).getCode();
+            reg1 = RegCode.valueOf(getReg(arr[idx+1])).getCode();
+            reg2 = RegCode.valueOf(getReg(arr[idx+2])).getCode();
             fourth = Integer.toHexString(Main.mp.get(arr[idx+3])-line_count-1);
             if (fourth.length()>1)
                 fourth=fourth.charAt(fourth.length()-1)+"";
